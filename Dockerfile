@@ -1,5 +1,5 @@
 FROM python:3.9-alpine3.13
-LABEL maintainer: "medet.tegistay@gmail.com"
+LABEL maintainer="medet.tegistay@gmail.com"
 
 ENV PYTHONUNBUFFERED 1
 
@@ -27,6 +27,6 @@ RUN python -m venv /py && \
     django-user
   
 
-ENV PATH = "/py/bin:$PATH"
+ENV PATH="/py/bin:$PATH"
 
 USER django-user
