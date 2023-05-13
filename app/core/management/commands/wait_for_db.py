@@ -2,14 +2,13 @@ from django.core.management.base import BaseCommand
 import time
 from psycopg2 import OperationalError as Psycopg2Error
 from django.db.utils import OperationalError
+
+
 class Command(BaseCommand):
   """Django command fo r waiting the database to finish"""
   def handle(self, *args, **options):
-
     self.stdout.write('Waiting for database...')
-
     db_up = False
-
     while db_up is False:
       try:
         self.check(databases=['default'])
@@ -18,5 +17,4 @@ class Command(BaseCommand):
         self.stdout.write("database unavailable, waiting 1 sec")
         time.sleep(1)
     self.stdout.write(self.style.SUCCESS('Database is ready!!!'))
-        
- 
+
